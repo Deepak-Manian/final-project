@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Enthusiast Database</title>
+    <!-- Custom Popcorn Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍿</text></svg>">
+    <!-- We link our CSS file here to keep layout completely separate -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Container holds all content and centers it -->
+    <div class="container">
+        
+        <header>
+            <h1>🍿 Movie Enthusiast Database</h1>
+            <p>Welcome! Add your favorite movies below to build our community watchlist.</p>
+        </header>
+
+        <!-- Form Section -->
+        <section class="add-movie-section">
+            <h2>Add a New Movie</h2>
+            <!-- Note: we use an ID instead of traditional form action because Javascript will handle the submit -->
+            <form id="addMovieForm">
+                
+                <div class="form-group">
+                    <label for="title">Movie Title *</label>
+                    <input type="text" id="title" name="title" required placeholder="e.g. Inception">
+                </div>
+
+                <div class="form-group">
+                    <label for="genre">Genre *</label>
+                    <!-- A simple select dropdown for simplicity -->
+                    <select id="genre" name="genre" required>
+                        <option value="">-- Select a Genre --</option>
+                        <option value="Action">Action</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Sci-Fi">Sci-Fi</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="release_year">Release Year *</label>
+                    <!-- Type number to automatically validate year input -->
+                    <input type="number" id="release_year" name="release_year" required min="1800" max="2099" placeholder="e.g. 2010">
+                </div>
+
+                <div class="form-group">
+                    <label for="poster_url">Poster Image URL</label>
+                    <input type="url" id="poster_url" name="poster_url" placeholder="https://example.com/poster.jpg">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Short Description / Review</label>
+                    <textarea id="description" name="description" rows="3" placeholder="What did you think about it?"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Add Movie to Database</button>
+                
+                <!-- This paragraph will show success/error messages -->
+                <p id="formMessage" class="message"></p>
+            </form>
+        </section>
+
+        <!-- View Movies Section Link -->
+        <section style="text-align: center; margin-top: 40px;">
+            <a href="movies.html" class="view-movies-link" style="color: var(--primary-color); font-size: 1.2rem; font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--primary-color); padding-bottom: 5px;">🍿 View the Full Movie Database</a>
+        </section>
+
+    </div>
+
+    <!-- We link our Javascript file at the bottom to ensure the HTML loads first -->
+    <script src="script.js"></script>
+
+</body>
+</html>
